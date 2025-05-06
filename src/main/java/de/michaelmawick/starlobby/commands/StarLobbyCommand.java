@@ -21,7 +21,7 @@ public class StarLobbyCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
-            StarLobby.getInstance().reloadConfig();
+            StarLobby.getInstance().getServer().reload();
             String reloadMessage = StarLobby.getInstance().replacePlaceholders(StarLobby.getInstance().getConfig().getString("reload-message"));
             sender.sendMessage(reloadMessage);
             return true;

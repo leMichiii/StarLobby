@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 
 public class ConnectionListener implements Listener {
 
@@ -32,5 +33,6 @@ public class ConnectionListener implements Listener {
         event.setQuitMessage(quitMessage);
         player.getInventory().clear();
     }
+
 
 }

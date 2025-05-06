@@ -34,3 +34,15 @@ health: 20
 max-health: 20
 food-level: 20
 player-gamemode: ADVENTURE
+
+# Player and Mob interactions:
+
+disable-block-breaking: true
+disable-block-placing: true
+disable-damage: true
+disable-item-drop: true
+disable-item-pickup: true
+disable-clicking: true
+disable-wheat-interaction: true
+disable-loosing-food: true
+disable-swap-offhand: true
