@@ -1,0 +1,26 @@
+# Config of StarLobby Lobby-System.
+# Here you can edit the whole plugin!
+
+# PlaceHolders:
+# You'll find all placeholders on our GitHub Wiki:
+#
+
+# This message will send, when enabling.
+# Leave this blank if you doesn't want this messages.
+plugin-enable-message: "%starlobby_prefix% §2StarLobby Plugin has been enabled."
+plugin-load-message: "%starlobby_prefix% §eStarLobby Plugin is loading."
+plugin-disable-message: "%starlobby_prefix% §4StarLobby Plugin has been disabled."
+
+
+# The prefix can be used in every message with the placeholder %starlobby_prefix%.
+prefix: "§6§lStarLobby §7» "
+
+# This message will be sent, when the player does not have the permission to perform this action/command.
+no-perms: "%starlobby_prefix% §cYou are not allowed to do this."
+
+# This will send if you perform a player action in the console.
+console-message: "%starlobby_prefix% §cYou have to be a player for this."
+
+# This is the message, when a player joins and leaves your server.
+join-message: "§7[§a+§7] §7%starlobby_playername%"
+quit-message: "§7[§c-§7] §7%starlobby_playername%"

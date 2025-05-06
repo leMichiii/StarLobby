@@ -3,5 +3,6 @@ author: leMichiii
 description: StarLobby is a high-customizable LobbySystem for Minecraft Servers. It offers much features and helps you to improve your server.
 version: 1.0
 api-version: 1.21
+main: de.michaelmawick.starlobby.StarLobby
 
 commands:
