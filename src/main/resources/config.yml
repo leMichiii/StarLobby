@@ -46,3 +46,16 @@ disable-clicking: true
 disable-wheat-interaction: true
 disable-loosing-food: true
 disable-swap-offhand: true
+
+# Hotbar Items
+# Important note: The slot will be
+
+warps:
+  displayname: "§6§lWarps"
+  item: NETHER_STAR
+  slot: 3
+
+infos:
+  displayname: "§6§lServer Informations"
+  item: BOOK
+  slot: 5
