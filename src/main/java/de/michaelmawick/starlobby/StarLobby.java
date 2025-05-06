@@ -1,12 +1,12 @@
 package de.michaelmawick.starlobby;
 
+import de.michaelmawick.starlobby.listener.ConnectionListener;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class StarLobby extends JavaPlugin {
 
-    private StarLobby instance;
-
+    public static StarLobby instance;
     private final FileConfiguration config = getConfig();
 
     @Override
@@ -22,6 +22,8 @@ public class StarLobby extends JavaPlugin {
         instance = this;
         String msg = replacePlaceholders(config.getString("plugin-enable-message"));
         getServer().getConsoleSender().sendMessage(msg);
+
+        getServer().getPluginManager().registerEvents(new ConnectionListener(), this);
     }
 
     @Override
@@ -30,7 +32,7 @@ public class StarLobby extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(msg);
     }
 
-    public StarLobby getInstance() {
+    public static StarLobby getInstance() {
         return instance;
     }
 

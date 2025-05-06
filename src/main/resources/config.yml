@@ -24,3 +24,10 @@ console-message: "%starlobby_prefix% §cYou have to be a player for this."
 # This is the message, when a player joins and leaves your server.
 join-message: "§7[§a+§7] §7%starlobby_playername%"
 quit-message: "§7[§c-§7] §7%starlobby_playername%"
+
+# General settings for the player when he is connecting.
+
+health: 20
+max-health: 20
+food-level: 20
+player-gamemode: ADVENTURE
