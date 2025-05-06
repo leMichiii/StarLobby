@@ -6,3 +6,4 @@ api-version: 1.21
 main: de.michaelmawick.starlobby.StarLobby
 
 commands:
+  starlobby:

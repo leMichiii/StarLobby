@@ -21,6 +21,9 @@ no-perms: "%starlobby_prefix% §cYou are not allowed to do this."
 # This will send if you perform a player action in the console.
 console-message: "%starlobby_prefix% §cYou have to be a player for this."
 
+# This is the message which will be sent, if the player reloads the plugin.
+reload-message: "%starlobby_prefix% §aYou have successfully reloaded the plugin."
+
 # This is the message, when a player joins and leaves your server.
 join-message: "§7[§a+§7] §7%starlobby_playername%"
 quit-message: "§7[§c-§7] §7%starlobby_playername%"

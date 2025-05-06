@@ -1,5 +1,6 @@
 package de.michaelmawick.starlobby;
 
+import de.michaelmawick.starlobby.commands.StarLobbyCommand;
 import de.michaelmawick.starlobby.listener.ConnectionListener;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +25,9 @@ public class StarLobby extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(msg);
 
         getServer().getPluginManager().registerEvents(new ConnectionListener(), this);
+
+        getCommand("starlobby").setExecutor(new StarLobbyCommand());
+        getCommand("starlobby").setTabCompleter(new StarLobbyCommand());
     }
 
     @Override
