@@ -49,7 +49,7 @@ disable-loosing-food: true
 disable-swap-offhand: true
 
 # Hotbar Items
-# Important note: The slot will be
+# Important note: The slots are going from 0 to 8 and not from 1 to 9
 
 hotbar:
   0:
@@ -62,5 +62,32 @@ hotbar:
     display-name: "&6&lInfo Book"
     lore:
       - "&7Shows some informations about the server"
+
+
+# Scoreboard...
+scoreboard:
+  enabled: true
+  title:
+    - "§6§lSTARLOBBY"
+    - "§f§lS§6§lTARLOBBY"
+    - "§6§lS§f§lT§6§lARLOBBY"
+    - "§6§lST§f§lA§6§lRLOBBY"
+    - "§6§lSTA§f§lR§6§lLOBBY"
+    - "§6§lSTAR§f§lL§6§lOBBY"
+    - "§6§lSTARL§f§lO§6§lBBY"
+    - "§6§lSTARLO§f§lB§6§lBY"
+    - "§6§lSTARLOB§f§lB§6§lY"
+    - "§6§lSTARLOBB§f§lY"
+
+
+# max: 20 Lines!
+  content:
+    - ""
+    - "§7Rank: §6%luckperms_prefix%"
+    - ""
+    - "§7Player: §6%starlobby_playername%"
+    - ""
+    - "www.starlobby.de"
+
 
 

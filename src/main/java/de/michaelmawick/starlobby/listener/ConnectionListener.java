@@ -1,6 +1,7 @@
 package de.michaelmawick.starlobby.listener;
 
 import de.michaelmawick.starlobby.StarLobby;
+import de.michaelmawick.starlobby.scoreboard.FastBoardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -76,6 +77,7 @@ public class ConnectionListener implements Listener {
 
             player.getInventory().setItem(slot, item);
         }
+        FastBoardManager.createScoreBoard(player);
     }
 
 
@@ -88,6 +90,7 @@ public class ConnectionListener implements Listener {
 
         event.setQuitMessage(quitMessage);
         player.getInventory().clear();
+        FastBoardManager.handleQuit(player.getUniqueId());
     }
 
 

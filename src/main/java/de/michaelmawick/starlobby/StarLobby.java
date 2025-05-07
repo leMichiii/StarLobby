@@ -30,6 +30,8 @@ public class StarLobby extends JavaPlugin {
 
         getCommand("starlobby").setExecutor(new StarLobbyCommand());
         getCommand("starlobby").setTabCompleter(new StarLobbyCommand());
+
+        
     }
 
     @Override
