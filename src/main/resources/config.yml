@@ -50,12 +50,16 @@ disable-swap-offhand: true
 # Hotbar Items
 # Important note: The slot will be
 
-warps:
-  displayname: "§6§lWarps"
-  item: NETHER_STAR
-  slot: 3
+hotbar:
+  0:
+    material: COMPASS
+    display-name: "&6&lTeleporter"
+    lore:
+      - "&7Open the teleporter"
+  4:
+    material: BOOK
+    display-name: "&6&lInfo Book"
+    lore:
+      - "&7Shows some informations about the server"
 
-infos:
-  displayname: "§6§lServer Informations"
-  item: BOOK
-  slot: 5
+

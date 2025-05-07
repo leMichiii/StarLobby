@@ -1,16 +1,23 @@
 package de.michaelmawick.starlobby.listener;
 
 import de.michaelmawick.starlobby.StarLobby;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ConnectionListener implements Listener {
 
@@ -26,19 +33,50 @@ public class ConnectionListener implements Listener {
         player.setMaxHealth(StarLobby.getInstance().getConfig().getInt("max-health"));
         player.setHealth(StarLobby.getInstance().getConfig().getInt("health"));
 
-        ItemStack warps = new ItemStack(Material.valueOf(String.valueOf(StarLobby.getInstance().getConfig().get("warps.item"))));
-        ItemMeta warpsMeta = warps.getItemMeta();
-        warpsMeta.setDisplayName(StarLobby.getInstance().getConfig().getString("warps.displayname"));
-        warps.setItemMeta(warpsMeta);
+        player.getInventory().clear();
+        StarLobby.getInstance().reloadConfig();
 
-        ItemStack infobook = new ItemStack(Material.valueOf(String.valueOf(StarLobby.getInstance().getConfig().get("infos.item"))));
-        ItemMeta infobookMeta = infobook.getItemMeta();
-        infobookMeta.setDisplayName(StarLobby.getInstance().getConfig().getString("infos.displayname"));
-        infobook.setItemMeta(infobookMeta);
+        Set<String> keys = StarLobby.getInstance().getConfig().getConfigurationSection("hotbar").getKeys(false);
 
-        player.getInventory().setItem(StarLobby.getInstance().getConfig().getInt("warps.slot"), warps);
-        player.getInventory().setItem(StarLobby.getInstance().getConfig().getInt("infos.slot"), infobook);
+        for (String key : keys) {
+            int slot;
+            try {
+                slot = Integer.parseInt(key);
+            } catch (NumberFormatException e) {
+                StarLobby.getInstance().getLogger().warning("Invalid slot: " + key);
+                continue;
+            }
+
+            String path = "hotbar." + key;
+
+            String materialStr = StarLobby.getInstance().getConfig().getString(path + ".material", "STONE");
+            Material material = Material.matchMaterial(materialStr);
+            if (material == null) {
+                StarLobby.getInstance().getLogger().warning("Invalid item on slot " + key + ": " + materialStr);
+                continue;
+            }
+
+            String name = ChatColor.translateAlternateColorCodes('&',
+                    StarLobby.getInstance().getConfig().getString(path + ".display-name", "Item"));
+
+            List<String> loreRaw = StarLobby.getInstance().getConfig().getStringList(path + ".lore");
+            List<String> lore = loreRaw.stream()
+                    .map(line -> ChatColor.translateAlternateColorCodes('&', line))
+                    .collect(Collectors.toList());
+
+            ItemStack item = new ItemStack(material);
+            ItemMeta meta = item.getItemMeta();
+            if (meta != null) {
+                meta.setDisplayName(name);
+                meta.setLore(lore);
+                item.setItemMeta(meta);
+            }
+
+            player.getInventory().setItem(slot, item);
+        }
     }
+
+
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {

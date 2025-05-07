@@ -1,6 +1,7 @@
 package de.michaelmawick.starlobby.commands;
 
 import de.michaelmawick.starlobby.StarLobby;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,7 +22,7 @@ public class StarLobbyCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
-            StarLobby.getInstance().getServer().reload();
+            Bukkit.reload();
             String reloadMessage = StarLobby.getInstance().replacePlaceholders(StarLobby.getInstance().getConfig().getString("reload-message"));
             sender.sendMessage(reloadMessage);
             return true;
