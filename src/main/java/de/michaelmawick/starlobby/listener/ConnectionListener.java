@@ -32,6 +32,8 @@ public class ConnectionListener implements Listener {
         player.setFoodLevel(StarLobby.getInstance().getConfig().getInt("food-level"));
         player.setMaxHealth(StarLobby.getInstance().getConfig().getInt("max-health"));
         player.setHealth(StarLobby.getInstance().getConfig().getInt("health"));
+        player.setLevel(StarLobby.getInstance().getConfig().getInt("level"));
+        player.setExp(0F);
 
         player.getInventory().clear();
         StarLobby.getInstance().reloadConfig();

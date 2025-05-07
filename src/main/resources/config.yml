@@ -33,6 +33,7 @@ quit-message: "§7[§c-§7] §7%starlobby_playername%"
 health: 20
 max-health: 20
 food-level: 20
+level: 2025
 player-gamemode: ADVENTURE
 
 # Player and Mob interactions:
